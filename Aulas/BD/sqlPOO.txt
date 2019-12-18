@@ -1,0 +1,32 @@
+CREATE TABLE teste(
+fnum serial primary key,
+fname varchar(100),
+lname varchar(100));
+
+CREATE TABLE departamento(
+dnum serial primary key,
+nome varchar(30) NOT NULL,
+orcamento decimal(10,2) NOT NULL);
+
+CREATE TABLE funcionario(
+fnum serial primary key,
+nome varchar(30) NOT NULL,
+endereco varchar(100),
+fone varchar(10),
+salario decimal(10,2),
+dnum int,
+foreign key(dnum) references departamento(dnum));
+
+CREATE TABLE produto(
+pnum serial primary key,
+descricao varchar(100) NOT NULL,
+peso decimal(5,2));
+
+CREATE TABLE fornecedor(
+fnum serial primary key,
+nome varchar(30) NOT NULL,
+endereco varchar(100),
+rank int);
+
+INSERT INTO public.departamento(nome, orcamento) VALUES ('A Esperanca nunca morre', 1500.00);
+INSERT INTO public.funcionario(nome, endereco, fone, salario, dnum) VALUES ('John Travolta', 'Facas que falam', '3499999999', 10000.00, 1);
